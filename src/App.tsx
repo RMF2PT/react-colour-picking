@@ -1,4 +1,6 @@
 import { ChangeEvent, useState } from "react";
+import Canvas from "./components/Canvas";
+import InputColor from "./components/InputColor";
 
 function App() {
   const [color, setColor] = useState<string>("Empty value");
@@ -9,16 +11,8 @@ function App() {
 
   return (
     <>
-      <div className="canvas" style={{ backgroundColor: color }}>
-        <p>{!color ? "Empty value" : color}</p>
-      </div>
-      <input
-        type="text"
-        placeholder="Add color name"
-        autoFocus
-        value={color === "Empty value" ? "" : color}
-        onChange={handleColorChange}
-      />
+      <Canvas color={color} />
+      <InputColor color={color} handleColorChange={handleColorChange} />
     </>
   );
 }
